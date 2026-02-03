@@ -1,4 +1,4 @@
-# CSV Flashcards
+# CSV Flashcards (Totally Vibecoded)
 
 A simple, self-contained web app that loads a 2-column CSV and lets you flip through flashcards.
 
