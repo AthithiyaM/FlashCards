@@ -174,8 +174,8 @@ button:disabled {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 24px;
   border-radius: 16px;
   background: var(--panel);
@@ -185,6 +185,8 @@ button:disabled {
   line-height: 1.4;
   color: var(--text);
   white-space: pre-wrap;
+  overflow: auto;
+  text-align: left;
 }
 
 .card-back {
