@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>CSV Flashcards</title>
+    <title>CSV/XLSX Flashcards</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,14 +16,18 @@
             class="brand-image"
           />
           <div class="brand-text">
-            <h1>CSV Flashcards</h1>
-            <p>Load a 2‑column CSV and flip through the cards.</p>
+            <h1>CSV/XLSX Flashcards</h1>
+            <p>Load a 2‑column CSV or XLSX and flip through the cards.</p>
           </div>
         </div>
         <div class="controls">
           <label class="file-input">
-            <input id="csvFile" type="file" accept=".csv,text/csv" />
-            <span>Choose CSV</span>
+            <input
+              id="csvFile"
+              type="file"
+              accept=".csv,text/csv,.xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            />
+            <span>Choose CSV/XLSX</span>
           </label>
           <button id="clearBtn" type="button" class="secondary" disabled>Clear</button>
         </div>
@@ -48,22 +52,33 @@
           <span>/</span>
           <span id="countLabel">0</span>
         </div>
+        <div class="view-tabs" role="tablist" aria-label="Card views">
+          <button id="allTab" type="button" class="tab is-active" role="tab" aria-selected="true">
+            All
+          </button>
+          <button id="badTab" type="button" class="tab" role="tab" aria-selected="false">
+            Bad
+          </button>
+        </div>
         <div class="toolbar-actions">
           <button id="flipBtn" type="button" class="secondary" disabled>Flip</button>
           <button id="shuffleBtn" type="button" class="secondary" disabled>Shuffle</button>
           <button id="resetBtn" type="button" class="secondary" disabled>Reset Order</button>
+          <button id="badBtn" type="button" class="secondary bad" disabled>Bad</button>
+          <button id="goodBtn" type="button" class="secondary good" disabled>Good</button>
         </div>
       </section>
 
       <section class="help">
-        <h2>CSV format</h2>
-        <p>Use two columns: front, back. Example:</p>
+        <h2>File format</h2>
+        <p>Use two columns: front, back. Works with CSV or XLSX. Example:</p>
         <pre><code>Capital of France,Paris
 "2 + 2",4
 "Term with, comma","Definition with, comma"</code></pre>
       </section>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
